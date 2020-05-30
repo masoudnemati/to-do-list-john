@@ -11,19 +11,21 @@ export default class TodoInput extends Component {
         >
           <input
             type="text"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight
-             focus:outline-none focus:shadow-outline"
-            placeholder=""
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="کارهایی که می خواید انجام دهید را اینجا بنویسید..."
             value={item}
             onChange={handleChange}
           />
-
           <button
             type="submit"
-            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded
-           focus:outline-none focus:shadow-outline"
+            disabled={item ? false : true}
+            className={
+              editItem
+                ? "mt-4 bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                : "mt-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            }
           >
-            افزودن به لیست
+            {editItem ? "ویرایش" : "افزودن به فهرست"}
           </button>
         </form>
       </div>
